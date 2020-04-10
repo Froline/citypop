@@ -8,5 +8,12 @@ gulp.task('default', () =>
   } )
   .bundle()
   .pipe(source('bundle.js'))
-  .pipe(gulp.dest('src/js/'))
+  .pipe(gulp.dest('src/'))
 );
+
+gulp.task("watch", () =>  {  
+    var targets = [
+      'src/js/*.js'
+    ];
+    gulp.watch(targets, gulp.series('default'));
+  });
