@@ -21,7 +21,7 @@ const loader = new PIXI.Loader();
 document.body.appendChild(app.view);
 
 const cityManager = new CityManager();
-var loaded = cityManager.load('data/data.json');
+var loaded = cityManager.load('./data/data.json');
 const goshogawara = SVG.getSVG(cityManager.getCityFromCode(2205).svg);
 
 // load the texture we need

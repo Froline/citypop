@@ -26,6 +26,15 @@ module.exports = {
         new CopyWebpackPlugin(
             [
                 {
+                    from: 'data/',
+                    to: 'data/'
+                },
+            ],
+            { context: 'src/' }
+        ),
+        new CopyWebpackPlugin(
+            [
+                {
                     from: 'index.html',
                     to: 'index.html'
                 },
