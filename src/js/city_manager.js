@@ -8,7 +8,7 @@ export default class CityManager {
         if(!d.ok) {
             throw new Error(`cannot load ${src}`);
         }
-        this.data = d.json();
+        this.data = await d.json();
         return;
     }
 
