@@ -1,8 +1,7 @@
 const PIXI = require('pixi.js');
 
 class SVG {
-    static _template = 
-       `<svg width={width} height={height} viewbox='0 0 1 1'>
+    static _template = `<svg width={width} height={height} viewbox='0 0 1 1'>
         <path d='{path}' fill='{fill_color}'/>
         </svg>`;
     static getSVG(str, fill_color='red', width=200, height=200) {
