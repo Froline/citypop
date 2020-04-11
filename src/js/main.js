@@ -1,6 +1,8 @@
-//import * as PIXI from 'pixi.js'
 const PIXI = require('pixi.js');
+const CityManager = require('./city_manager.js');
+const SVG = require('./svg_util.js');
 
+// 五所川原 2205
 
 document.addEventListener('DOMContentLoaded', () => {
 // The application will create a renderer using WebGL, if possible,
@@ -14,9 +16,13 @@ const loader = new PIXI.Loader();
 // The application will create a canvas element for you that you
 // can then insert into the DOM.
 document.body.appendChild(app.view);
- 
+
+const cityManager = new CityManager();
+cityManager.load('data/data.json');
+const goshogawara = SVG.getSVG(cityManager.getCityFromCode(2205).svg);
+
 // load the texture we need
-loader.add('bunny', 'img/bunny.png').load((loader, resources) => {
+loader.add('bunny', goshogawara).load((loader, resources) => {
  
     // This creates a texture from a 'bunny.png' image.
     const bunny = new PIXI.Sprite(resources.bunny.texture);
