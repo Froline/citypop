@@ -1,6 +1,9 @@
-const PIXI = require('pixi.js');
-const CityManager = require('./city_manager.js');
-const SVG = require('./svg_util.js');
+import * as PIXI from 'pixi.js'
+import CityManager from './city_manager.js'
+import SVG from './svg_util.js'
+
+//const CityManager = require('./city_manager.js');
+//const SVG = require('./svg_util.js');
 
 // 五所川原 2205
 
@@ -18,11 +21,11 @@ const loader = new PIXI.Loader();
 document.body.appendChild(app.view);
 
 const cityManager = new CityManager();
-cityManager.load('data/data.json');
+var loaded = cityManager.load('data/data.json');
 const goshogawara = SVG.getSVG(cityManager.getCityFromCode(2205).svg);
 
 // load the texture we need
-loader.add('bunny', goshogawara).load((loader, resources) => {
+loaded.then( loader.add('bunny', goshogawara).load((loader, resources) => {
  
     // This creates a texture from a 'bunny.png' image.
     const bunny = new PIXI.Sprite(resources.bunny.texture);
@@ -43,6 +46,6 @@ loader.add('bunny', goshogawara).load((loader, resources) => {
          // each frame we spin the bunny around a bit
         bunny.rotation += 0.01;
     });
-});
+}) );
 
 });

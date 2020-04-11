@@ -1,9 +1,4 @@
-const PIXI = require('pixi.js');
-
-class SVG {
-    static _template = `<svg width={width} height={height} viewbox='0 0 1 1'>
-        <path d='{path}' fill='{fill_color}'/>
-        </svg>`;
+export default class SVG {
     static getSVG(str, fill_color='red', width=200, height=200) {
         return this._template.replace(/\{width\}/g, width)
             .replace(/\{height\}/g, height)
@@ -11,3 +6,8 @@ class SVG {
             .replace(/\{fill_color\}/g, fill_color);
     }
 }
+SVG._template =
+   `<svg width={width} height={height} viewbox='0 0 1 1'>
+    <path d='{path}' fill='{fill_color}'/>
+    </svg>`;
+

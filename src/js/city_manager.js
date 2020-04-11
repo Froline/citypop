@@ -1,12 +1,6 @@
-const PIXI = require('pixi.js');
-
-class CityManager {
+export default class CityManager {
     constructor() {
         this.data = null;
-    }
-
-    static NotLoadedError() {
-        return { message: 'city data not loaded', name: 'NotLoadedError' };
     }
 
     async load(src) {
@@ -20,7 +14,7 @@ class CityManager {
 
     getCityFromCode(n) {
         if(!this.data) {
-            throw new NotLoadedError();
+            throw new Error('data not loaded');
         }
         return this.data.find(e => e['市区町村コード'] == n);
     }
