@@ -27,12 +27,13 @@ var loaded = cityManager.load('./data/data.json');
 
 loaded.then( () => { 
     const goshogawara = SVG.getSVGCode(cityManager.getCityFromCode(2205).svg);
-    document.getElementById('svg_test').innerHTML = goshogawara;
 
     let url = 'data:image/svg+xml;base64,' + Base64.encode(goshogawara);
+    document.getElementById('svg_test').src = url;
     const svg_resource = new PIXI.resources.SVGResource(url);
     const base_texture = new PIXI.BaseTexture(svg_resource);
-    const texture = PIXI.Texture.from(base_texture);
+    console.log(base_texture);
+    const texture = new PIXI.Texture(base_texture);
 
     const bunny = new PIXI.Sprite(texture);
 
@@ -47,11 +48,18 @@ loaded.then( () => {
     // Add the bunny to the scene we are building.
     app.stage.addChild(bunny);
 
+    const basicText = new PIXI.Text('Basic text in pixi', { fill: 0xffffff });
+    basicText.x = 50;
+    basicText.y = 100;
+    app.stage.addChild(basicText);
+
+
     // Listen for frame updates
     app.ticker.add(() => {
         // each frame we spin the bunny around a bit
         bunny.rotation += 0.01;
     });
+
 } );
 
 });

@@ -7,7 +7,7 @@ export default class SVG {
     }
 }
 SVG._template =
-`<svg width={width} height={height} viewbox='0 0 1 1'>
-    <path d='{path}' fill='{fill_color}'/>
+`<svg width="{width}" height="{height}" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+<path d="{path}" fill="{fill_color}"/>
 </svg>`;
 
