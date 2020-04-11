@@ -1,4 +1,6 @@
 import * as PIXI from 'pixi.js'
+import { Base64 } from 'js-base64';
+
 import CityManager from './city_manager.js'
 import SVG from './svg_util.js'
 
@@ -23,31 +25,33 @@ document.body.appendChild(app.view);
 const cityManager = new CityManager();
 var loaded = cityManager.load('./data/data.json');
 
-// load the texture we need
 loaded.then( () => { 
-    var goshogawara = SVG.getSVG(cityManager.getCityFromCode(2205).svg);
-    loader.add('bunny', goshogawara).load((loader, resources) => {
- 
-        // This creates a texture from a 'bunny.png' image.
-        const bunny = new PIXI.Sprite(resources.bunny.texture);
-    
-        // Setup the position of the bunny
-        bunny.x = app.renderer.width / 2;
-        bunny.y = app.renderer.height / 2;
-    
-        // Rotate around the center
-        bunny.anchor.x = 0.5;
-        bunny.anchor.y = 0.5;
-    
-        // Add the bunny to the scene we are building.
-        app.stage.addChild(bunny);
-    
-        // Listen for frame updates
-        app.ticker.add(() => {
-            // each frame we spin the bunny around a bit
-            bunny.rotation += 0.01;
-        });
-    }) 
+    const goshogawara = SVG.getSVGCode(cityManager.getCityFromCode(2205).svg);
+    document.getElementById('svg_test').innerHTML = goshogawara;
+
+    let url = 'data:image/svg+xml;base64,' + Base64.encode(goshogawara);
+    const svg_resource = new PIXI.resources.SVGResource(url);
+    const base_texture = new PIXI.BaseTexture(svg_resource);
+    const texture = PIXI.Texture.from(base_texture);
+
+    const bunny = new PIXI.Sprite(texture);
+
+    // Setup the position of the bunny
+    bunny.x = app.renderer.width / 2;
+    bunny.y = app.renderer.height / 2;
+
+    // Rotate around the center
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    // Add the bunny to the scene we are building.
+    app.stage.addChild(bunny);
+
+    // Listen for frame updates
+    app.ticker.add(() => {
+        // each frame we spin the bunny around a bit
+        bunny.rotation += 0.01;
+    });
 } );
 
 });

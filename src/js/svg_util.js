@@ -1,5 +1,5 @@
 export default class SVG {
-    static getSVG(str, fill_color='red', width=200, height=200) {
+    static getSVGCode(str, fill_color='red', width=200, height=200) {
         return this._template.replace(/\{width\}/g, width)
             .replace(/\{height\}/g, height)
             .replace(/\{path\}/g, str)
