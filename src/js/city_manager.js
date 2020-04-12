@@ -1,3 +1,6 @@
+
+import msgpack from 'msgpack-lite'
+
 export default class CityManager {
     constructor() {
         this.data = null;
@@ -8,7 +11,8 @@ export default class CityManager {
         if(!d.ok) {
             throw new Error(`cannot load ${src}`);
         }
-        this.data = await d.json();
+        let data = new Uint8Array(await d.arrayBuffer());
+        this.data = msgpack.decode(data);
         return;
     }
 
@@ -26,4 +30,6 @@ export default class CityManager {
         let r = Math.floor(this.data.length * Math.random());
         return this.data[r]; 
     }
+
+    
 }
