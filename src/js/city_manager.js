@@ -18,4 +18,12 @@ export default class CityManager {
         }
         return this.data.find(e => e['市区町村コード'] == n);
     }
+
+    sampleCity() {
+        if(!this.data) {
+            throw new Error('data not loaded');
+        }
+        let r = Math.floor(this.data.length * Math.random());
+        return this.data[r]; 
+    }
 }
