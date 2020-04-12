@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // The application will create a renderer using WebGL, if possible,
     // with a fallback to a canvas render. It will also setup the ticker
     // and the root stage PIXI.Container.
-    console.log(PIXI);
 
     const app = new PIXI.Application();
     const loader = new PIXI.Loader();

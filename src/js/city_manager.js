@@ -23,7 +23,7 @@ export default class CityManager {
         return this.data.find(e => e['市区町村コード'] == n);
     }
 
-    sampleCity() {
+    getRandomCity() {
         if(!this.data) {
             throw new Error('data not loaded');
         }
