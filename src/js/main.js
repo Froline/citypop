@@ -26,7 +26,7 @@ const cityManager = new CityManager();
 var loaded = cityManager.load('./data/data.json');
 
 loaded.then( () => { 
-    const city = cityManager.sampleCity()
+    const city = cityManager.getRandomCity()
     const citySVG = SVG.getSVGCode(city.svg);
 
     let url = 'data:image/svg+xml;base64,' + Base64.encode(citySVG);
