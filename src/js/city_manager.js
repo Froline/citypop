@@ -1,5 +1,5 @@
 
-import msgpack from 'msgpack-lite'
+import msgpack from 'msgpack-lite';
 
 export default class CityManager {
     constructor() {

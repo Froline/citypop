@@ -1,7 +1,7 @@
-import * as PIXI from 'pixi.js'
-import CityManager from './city_manager.js'
+import * as PIXI from 'pixi.js';
+import CityManager from './city_manager.js';
 
-import {SceneTest,SceneTitle} from './scene/'
+import {SceneTest,SceneTitle} from './scene/';
 
 export default class Game {
     constructor() {
@@ -26,7 +26,7 @@ export default class Game {
         var pixi_loaded = new Promise( (resolve, reject) => {
             this.loader.load( (loader, resources) => {
                 resolve();
-            } )
+            } );
         });
 
         Promise.all([citymanager_loaded, pixi_loaded]).then(() => {

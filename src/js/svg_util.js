@@ -10,14 +10,14 @@ export default class SVG {
         let tokens = [];
         for (const poly of multiPoly) {
             for (const cycle of poly) {
-                let subtokens = []  
+                let subtokens = [];  
                 for (const [x,y] of cycle) {
-                    subtokens.push(x+','+y)
+                    subtokens.push(x+','+y);
                 }
-                tokens.push("M "+subtokens.join(" L ")+" z")
+                tokens.push('M '+subtokens.join(' L ')+' z');
             }
         }
-        return tokens.join(" ");
+        return tokens.join(' ');
     }
 }
 SVG._template =
