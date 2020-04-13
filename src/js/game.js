@@ -9,6 +9,11 @@ export default class Game {
         this.loader = new PIXI.Loader();
         document.body.appendChild(this.app.view);
 
+        this._sceneList = {
+            test: SceneTest,
+            title: SceneTitle,
+        };
+
         this.loader.add([
             { name: 'bunny', url: './img/bunny.png' },
             { name: 'logo', url: './img/latenaughts_logo.png' },
@@ -30,7 +35,16 @@ export default class Game {
         });
     
     }
+
+    changeScene(scene) {
+        this.scene.dispose();
+        this.scene = new this._sceneList[scene](this);
+    }
+
     onTick(delta) {
-        this.scene && this.scene.onTick(this, delta);
+        this.scene && this.scene.onTick(delta);
+    }
+    onKeyDown(key) {
+        this.scene && this.scene.onKeyDown(key);
     }
 }

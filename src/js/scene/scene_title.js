@@ -7,7 +7,13 @@ export default class SceneTitle extends Scene {
         this.logo = game.app.stage.addChild(new PIXI.Sprite(game.loader.resources['logo'].texture));
         this.logo.setTransform(100, 100);
     }
-    onTick(game, delta) {
-        super.onTick(game, delta);
+    onTick(delta) {
+        super.onTick(delta);
+    }
+    onKeyDown(key) {
+        super.onKeyDown(key);
+        if(key == 'KeyA'){
+            this.game.changeScene('test');
+        }
     }
 }

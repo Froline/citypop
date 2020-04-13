@@ -1,11 +1,16 @@
 export default class Scene {
     constructor(game) {
-        game.app.stage.removeChildren();
+        this.game = game
+        this.game.app.stage.removeChildren();
         this.tick = 0;
         this.elapsed = 0.0;
     }
-    onTick(game, delta) {
+    onTick(delta) {
         this.tick++;
         this.elapsed += delta;
+    }
+    onKeyDown(key) {
+    }
+    dispose() {
     }
 }
