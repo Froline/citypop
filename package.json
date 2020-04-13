@@ -4,8 +4,8 @@
   "description": "population high and low game",
   "main": "index.js",
   "scripts": {
-    "lint":"eslint **/*.js",
-    "format":"eslint **/*.js --fix",
+    "lint": "eslint **/*.js",
+    "format": "eslint **/*.js --fix",
     "build": "webpack",
     "serve": "webpack-dev-server"
   },
@@ -35,6 +35,10 @@
   },
   "dependencies": {
     "eslint": "^6.8.0",
-    "msgpack-lite": "^0.1.26"
-  }
+    "msgpack-lite": "^0.1.26",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
