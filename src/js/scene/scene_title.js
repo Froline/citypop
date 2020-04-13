@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js'
+import * as PIXI from 'pixi.js';
 import Scene from './_scene_base.js';
 
 export default class SceneTitle extends Scene {

@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js'
+import * as PIXI from 'pixi.js';
 import { Base64 } from 'js-base64';
 
 import Scene from './_scene_base.js';
@@ -8,7 +8,7 @@ export default class SceneTest extends Scene {
     constructor(game) {
         super(game);
 
-        this.city = this.game.cityManager.getRandomCity()
+        this.city = this.game.cityManager.getRandomCity();
         this.citySVG = SVG.getSVGCode(SVG.calculateSVGPath(this.city.path));
 
         let url = 'data:image/svg+xml;base64,' + Base64.encode(this.citySVG);
@@ -60,16 +60,16 @@ export default class SceneTest extends Scene {
         // each frame we spin the this.bunny around a bit
         this.bunny.rotation += 0.01;
         if (this.tick > 180 && this.tick < 180 + 100) {
-            this.prefText.alpha = (this.tick - 180) * 0.01
+            this.prefText.alpha = (this.tick - 180) * 0.01;
         }
         if (this.tick > 300 && this.tick < 300 + 100) {
-            this.popuText.alpha = (this.tick - 300) * 0.01
+            this.popuText.alpha = (this.tick - 300) * 0.01;
         }
         if (this.tick > 320 && this.tick < 320 + 100) {
-            this.areaText.alpha = (this.tick - 320) * 0.01
+            this.areaText.alpha = (this.tick - 320) * 0.01;
         }
         if (this.tick > 460 && this.tick < 460 + 100) {
-            this.cityText.alpha = (this.tick - 460) * 0.01
+            this.cityText.alpha = (this.tick - 460) * 0.01;
         }
     }
     onKeyDown(key) {
