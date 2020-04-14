@@ -13,7 +13,7 @@ export default class SceneTitle extends Scene {
     onKeyDown(key) {
         super.onKeyDown(key);
         if(key == 'KeyA'){
-            this.game.changeScene('test');
+            this.game.changeScene('game');
         }
     }
 }

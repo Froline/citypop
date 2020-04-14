@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import CityManager from './city_manager.js';
 
-import {SceneTest,SceneTitle} from './scene/';
+import {SceneTest,SceneTitle,SceneGame} from './scene/';
 
 export default class Game {
     constructor() {
@@ -12,6 +12,7 @@ export default class Game {
         this._sceneList = {
             test: SceneTest,
             title: SceneTitle,
+            game: SceneGame,
         };
 
         this.loader.add([
